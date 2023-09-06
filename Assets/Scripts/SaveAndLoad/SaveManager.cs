@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
+using System;
 using System.Linq;
 
 public class SaveManager : MonoBehaviour
@@ -8,7 +10,6 @@ public class SaveManager : MonoBehaviour
     public static SaveManager instance;
     [SerializeField] private string fileName;
     [SerializeField] private GameData gameData;
-
     [SerializeField] private bool encryptData;
 
     private List<ISaveManager> saveManagers;
@@ -20,12 +21,15 @@ public class SaveManager : MonoBehaviour
             instance = this;
         else
             Destroy(instance.gameObject);
-    }
-    private void Start()
-    {
+
         dataHandle = new FlieDataHandle(Application.persistentDataPath, fileName, encryptData);
         saveManagers = FindAllSaveManagers();
         LoadGame();
+    }
+    private void Start()
+    {
+        
+        
     }
     [ContextMenu("Delete Data")]
     public void DeleteData()
@@ -44,9 +48,9 @@ public class SaveManager : MonoBehaviour
         gameData = dataHandle.Load();
         if(gameData == null)
             NewGame();
-
-        foreach(ISaveManager manager in saveManagers)
+        foreach (ISaveManager manager in saveManagers)
         {
+            //Debug.Log(manager);
             manager.LoadData(gameData);
         }
         Debug.Log("LoadGame: " + gameData.currency);
@@ -54,12 +58,12 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
-        foreach(ISaveManager manager in saveManagers)
+        foreach (ISaveManager manager in saveManagers)
         {
+            //Debug.Log(manager);
             manager.SaveData(ref gameData);
         }
         dataHandle.Save(gameData);
-        Debug.Log("SaveGame: " + gameData.currency);
     }
 
     private void OnApplicationQuit()
@@ -70,7 +74,9 @@ public class SaveManager : MonoBehaviour
     private List<ISaveManager> FindAllSaveManagers()
     {
         IEnumerable<ISaveManager> saveManagers = FindObjectsOfType<MonoBehaviour>().OfType<ISaveManager>();
+        //Debug.Log("FindAllSaveManagers: " + saveManagers.Count());
         return new List<ISaveManager>(saveManagers);
+
     }
 
 }

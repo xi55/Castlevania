@@ -36,7 +36,9 @@ public class Dodge_Skill : Skill
     {
         if (dodgeUnlockedButton.unLocked)
         {
-            player.states.evasion.AddModifiers(evasionAmount);
+            PlayerStarts playerStarts = player.GetComponent<PlayerStarts>();
+            playerStarts.evasion.AddModifiers(evasionAmount);
+            //player.states.evasion.AddModifiers(evasionAmount);
             Inventory.instance.UpdataStatUI();
             dodgeUnlocked = true;
         }

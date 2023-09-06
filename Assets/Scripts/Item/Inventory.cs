@@ -130,7 +130,7 @@ public class Inventory : MonoBehaviour, ISaveManager
             {
                 if (item.Key.equipmentType == equipmentItem[i].slotType)
                 {
-                    Debug.Log(item.Value.data.itemName);
+                    //Debug.Log(item.Value.data.itemName);  
                     equipmentItem[i].UpdataSlot(item.Value);
                 }
             }
@@ -158,6 +158,7 @@ public class Inventory : MonoBehaviour, ISaveManager
 
     public void UpdataStatUI()
     {
+        //Debug.Log(statSlot);
         for (int i = 0; i < statSlot.Length; i++)
         {
             statSlot[i].UpdataStatValueUI();

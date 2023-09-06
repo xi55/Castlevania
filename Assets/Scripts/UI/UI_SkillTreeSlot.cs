@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISaveManager
+public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,ISaveManager
 {
-    [SerializeField] private string skillName;
+    public string skillName;
     [TextArea]
     [SerializeField] private string skillDescription;
 
@@ -33,7 +30,7 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
         skillImage = GetComponent<Image>();
         skillImage.color = lockedSkillColor;
         ui = GetComponentInParent<UI>();
-        if(unLocked)
+        if (unLocked)
             skillImage.color = Color.white;
     }
 
@@ -75,7 +72,8 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void LoadData(GameData _data)
     {
-        if(_data.skillTree.TryGetValue(skillName, out bool value))
+        Debug.Log("UI_SkillTreeSlot load Data");
+        if (_data.skillTree.TryGetValue(skillName, out bool value))
         {
             unLocked = value;
         }
@@ -83,8 +81,8 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void SaveData(ref GameData _data)
     {
-        //throw new System.NotImplementedException();
-        if(_data.skillTree.TryGetValue(skillName, out bool value))
+        Debug.Log("UI_SkillTreeSlot save Data");
+        if (_data.skillTree.TryGetValue(skillName, out bool value))
         {
             _data.skillTree.Remove(skillName);
             _data.skillTree.Add(skillName, unLocked);

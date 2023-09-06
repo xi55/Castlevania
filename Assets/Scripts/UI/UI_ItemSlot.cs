@@ -56,6 +56,8 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         ui.itemTip.HideToolTip();
     }
 
+
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (item == null || item.data == null) return;
@@ -83,4 +85,5 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         if (item == null || item.data == null) return;
         ui.itemTip.HideToolTip();
     }
+
 }

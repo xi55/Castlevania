@@ -3,7 +3,7 @@ using UnityEngine;
 public class UI : MonoBehaviour
 {
     [SerializeField] private GameObject characterUI;
-    [SerializeField] private GameObject skillTreeUI;
+    public GameObject skillTreeUI;
     [SerializeField] private GameObject craftUI;
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private GameObject inGameUI;
@@ -17,6 +17,7 @@ public class UI : MonoBehaviour
     private void Awake()
     {
         SwitchTo(skillTreeUI);
+        SwitchTo(characterUI);
     }
     void Start()
     {
@@ -59,6 +60,7 @@ public class UI : MonoBehaviour
         SwitchTo(_menu);
     }
 
+   
     private void CheckForInGameUI()
     {
         for(int i = 0; i < transform.childCount; i++)
