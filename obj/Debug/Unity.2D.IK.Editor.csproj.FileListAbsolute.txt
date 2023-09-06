@@ -1,0 +1,2 @@
+E:\UnityProject\RPG\obj\Debug\Unity.2D.IK.Editor.csproj.AssemblyReference.cache
+E:\UnityProject\RPG\obj\Debug\Unity.2D.IK.Editor.csproj.CoreCompileInputs.cache

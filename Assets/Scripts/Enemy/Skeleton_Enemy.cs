@@ -61,6 +61,7 @@ public class Skeleton_Enemy : Enemy
     {
         base.Die();
         stateMachine.ChangeState(deathState);
+
     }
     protected override void OnDrawGizmos()
     {

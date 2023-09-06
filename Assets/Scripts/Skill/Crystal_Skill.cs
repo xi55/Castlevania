@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Crystal_Skill : Skill
 {
@@ -8,14 +9,16 @@ public class Crystal_Skill : Skill
     [SerializeField] private float crystalDuration;
     private Crystal_Controller currentCrystal;
 
-    [SerializeField] private bool cloneInsteadOfCrystal;
+    
 
     [Header("Crystal Move")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private bool canMove;
+    [SerializeField] private UI_SkillTreeSlot crystalMoveUnlockedButton;
 
-    [Header("Crystal Boom")]
+    [Header("Crystal Explosive")]
     [SerializeField] private bool canBoom;
+    [SerializeField] private UI_SkillTreeSlot crystalExplosiveUnlockedButton;
 
     [Header("Muilt Crystal")]
     [SerializeField] private float useWindowTime;
@@ -23,6 +26,35 @@ public class Crystal_Skill : Skill
     [SerializeField] private int crystalAmount;
     [SerializeField] private float muiltCrystalCooldown;
     [SerializeField] private List<GameObject> crystals = new List<GameObject>();
+    [SerializeField] private UI_SkillTreeSlot crystalMuiltUnlockedButton;
+
+
+    [Header("Crystal")]
+    [SerializeField] private UI_SkillTreeSlot crystalUnlockedButton;
+    public bool crystalUnlocked { get; private set; }
+
+    [Header("Crystal mirage")]
+    [SerializeField] private bool cloneInsteadOfCrystal;
+    [SerializeField] private UI_SkillTreeSlot crystalMirageUnlockedButton;
+
+    protected override void Start()
+    {
+        base.Start();
+        crystalUnlockedButton.GetComponent<Button>().onClick.AddListener(CrystalUnlocked);
+        crystalMoveUnlockedButton.GetComponent<Button>().onClick.AddListener(CrystalMoveUnlocked);
+        crystalExplosiveUnlockedButton.GetComponent<Button>().onClick.AddListener(CrystalExplosiveUnlocked);
+        crystalMuiltUnlockedButton.GetComponent<Button>().onClick.AddListener(CrystalMuiltUnlocked);
+        crystalMirageUnlockedButton.GetComponent<Button>().onClick.AddListener(CrystalMirageUnlocked);
+    }
+
+    protected override void CheckUnlock()
+    {
+        CrystalUnlocked();
+        CrystalMoveUnlocked();
+        CrystalExplosiveUnlocked();
+        CrystalMuiltUnlocked();
+        CrystalMirageUnlocked();
+    }
 
     public override bool CanUseSkill()
     {
@@ -109,4 +141,32 @@ public class Crystal_Skill : Skill
         RefilCrystal();
     }
 
+    #region unlock skill region
+    public void CrystalMoveUnlocked()
+    {
+        if (crystalMoveUnlockedButton.unLocked)
+            canMove = true;
+    }
+
+    public void CrystalExplosiveUnlocked()
+    {
+        if (crystalExplosiveUnlockedButton.unLocked)
+            canBoom = true;
+    }
+    public void CrystalMuiltUnlocked()
+    {
+        if (crystalMuiltUnlockedButton.unLocked)
+            canMulitCrystal = true;
+    }
+    public void CrystalUnlocked()
+    {
+        if (crystalUnlockedButton.unLocked)
+            crystalUnlocked = true;
+    }
+    public void CrystalMirageUnlocked()
+    {
+        if (crystalMirageUnlockedButton.unLocked)
+            cloneInsteadOfCrystal = true;
+    }
+    #endregion
 }

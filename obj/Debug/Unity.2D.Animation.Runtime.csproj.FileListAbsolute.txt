@@ -1,0 +1,2 @@
+E:\UnityProject\RPG\obj\Debug\Unity.2D.Animation.Runtime.csproj.AssemblyReference.cache
+E:\UnityProject\RPG\obj\Debug\Unity.2D.Animation.Runtime.csproj.CoreCompileInputs.cache

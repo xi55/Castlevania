@@ -1,0 +1,2 @@
+E:\UnityProject\RPG\obj\Debug\Unity.2D.Psdimporter.Editor.csproj.AssemblyReference.cache
+E:\UnityProject\RPG\obj\Debug\Unity.2D.Psdimporter.Editor.csproj.CoreCompileInputs.cache

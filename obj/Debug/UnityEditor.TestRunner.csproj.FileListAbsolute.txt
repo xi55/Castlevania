@@ -1,0 +1,2 @@
+E:\UnityProject\RPG\obj\Debug\UnityEditor.TestRunner.csproj.AssemblyReference.cache
+E:\UnityProject\RPG\obj\Debug\UnityEditor.TestRunner.csproj.CoreCompileInputs.cache

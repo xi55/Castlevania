@@ -50,7 +50,7 @@ public class Crystal_Controller : MonoBehaviour
                 FinishCrystal();
         }
         if (canGrow)
-            transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(3, 3), growSpeed * Time.deltaTime);
+            transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(1, 1), growSpeed * Time.deltaTime);
 
     }
 
@@ -62,8 +62,11 @@ public class Crystal_Controller : MonoBehaviour
             if (hit.GetComponent<Enemy>() != null)
             {
                 //hit.GetComponent<Enemy>().Damage();
-                EnemyStarts enemy = hit.GetComponent<EnemyStarts>();
-                PlayerManager.instance.player.states.DoDamage(enemy);
+                PlayerManager.instance.player.states.DoMagicDamage(hit.GetComponent<CharacterStarts>());
+
+                ItemData_Equipment equipment = Inventory.instance.GetEquipment(EquipmentType.Amulet);
+                if (equipment != null)
+                    equipment.ItemEffect(hit.transform);
             }
         }
     }

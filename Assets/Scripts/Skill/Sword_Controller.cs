@@ -163,8 +163,16 @@ public class Sword_Controller : MonoBehaviour
     private void SkillFreezeTime(Enemy enemy)
     {
         //enemy.Damage();
-        player.states.DoDamage(enemy.GetComponent<EnemyStarts>());
-        enemy.StartCoroutine(enemy.FreezeTimeFor(freezeTime));
+        player.states.DoDamage(enemy.GetComponent<CharacterStarts>());
+        if(player.skill.swordSkill.timeStopUnlock)
+            enemy.StartCoroutine(enemy.FreezeTimeFor(freezeTime));
+        if (player.skill.swordSkill.vulnerabilityUnlock)
+            enemy.states.MakeVulnerableFor(freezeTime);
+
+        ItemData_Equipment equipment = Inventory.instance.GetEquipment(EquipmentType.Amulet);
+        if (equipment != null)
+            equipment.ItemEffect(enemy.transform);
+
     }
 
     private void SetupTargetForBounce(Collision2D collision)
@@ -174,7 +182,7 @@ public class Sword_Controller : MonoBehaviour
 
         if (collision.gameObject.GetComponent<Enemy>() != null)
         {
-            player.states.DoDamage(collision.gameObject.GetComponent<EnemyStarts>());
+            player.states.DoDamage(collision.gameObject.GetComponent<CharacterStarts>());
             if (isBouncing && enemyTarget.Count <= 0)
             {
                 Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10f);

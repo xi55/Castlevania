@@ -1,0 +1,2 @@
+E:\UnityProject\RPG\obj\Debug\Unity.2D.SpriteShape.Runtime.csproj.AssemblyReference.cache
+E:\UnityProject\RPG\obj\Debug\Unity.2D.SpriteShape.Runtime.csproj.CoreCompileInputs.cache

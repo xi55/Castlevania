@@ -150,13 +150,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   rb: {fileID: 0}
-  returnSpeed: 25
+  circleCollider: {fileID: 0}
+  returnSpeed: 50
   pierceAmount: 0
+  isPierce: 0
   bounceSpeed: 20
-  isBouncing: 0
   bounceAmount: 0
   enemyTarget: []
-  freezeTime: 0.7
 --- !u!58 &934165522764989767
 CircleCollider2D:
   m_ObjectHideFlags: 0

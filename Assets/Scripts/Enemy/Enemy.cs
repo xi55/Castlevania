@@ -86,6 +86,7 @@ public class Enemy : Character
         FreezeTime(false);
     }
 
+    public virtual void FreezeEnemy(float _freezeTime) => StartCoroutine(FreezeTimeFor(_freezeTime));
     public virtual RaycastHit2D isPlayerDetect() => Physics2D.Raycast(this.transform.position, Vector2.right * faceDir, 15, isPlayer);
     public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 }

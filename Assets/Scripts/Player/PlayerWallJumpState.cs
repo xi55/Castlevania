@@ -13,7 +13,7 @@ public class PlayerWallJumpState : PlayerStates
         base.Enter();
 
         stateTime = .4f;
-        player.SetVelocity(5 * -player.faceDir, player.JumpForce);
+        player.SetVelocity(5 * -player.faceDir, player.jumpForce);
     }
 
     public override void Exit()

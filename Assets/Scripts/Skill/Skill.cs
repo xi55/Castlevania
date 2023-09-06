@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    [SerializeField] protected float cooldown;
+    public float cooldown;
     [SerializeField] protected float cooldownTimer;
     protected Player player;
 
     protected virtual void Start()
     {
         player = PlayerManager.instance.player;
+        CheckUnlock();
     }
     protected virtual void Update()
     {
@@ -31,6 +32,11 @@ public class Skill : MonoBehaviour
     }
 
     public virtual void UseSkill()
+    {
+
+    }
+
+    protected virtual void CheckUnlock()
     {
 
     }

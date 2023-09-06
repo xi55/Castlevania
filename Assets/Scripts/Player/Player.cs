@@ -9,12 +9,16 @@ public class Player : Character
 
     [Header("Move info")]
     public float moveSpeed;
-    public float JumpForce;
+    public float jumpForce;
     public float returnImpact;
+    private float defultMoveSpeed;
+    private float defultJumpForce;
+    
 
     [Header("Dash info")]
     public float dashSpeed;
     public float dashDir;
+    public float defultDashSpeed;
 
     [Header("CounterAttack info")]
     public float counterAttackDuration;
@@ -64,6 +68,10 @@ public class Player : Character
         base.Start();
         stateMachine.Initialize(IdelState);
         skill = SkillManager.instance;
+
+        defultMoveSpeed = moveSpeed;
+        defultJumpForce = jumpForce;
+        defultDashSpeed = dashSpeed;
     }
 
     // Update is called once per frame
@@ -73,14 +81,37 @@ public class Player : Character
         stateMachine.currentState.Update();
         Dash();
 
-        if(Input.GetKeyDown(KeyCode.S))
+        if(Input.GetKeyDown(KeyCode.S) && skill.crystalSkill.crystalUnlocked)
             skill.crystalSkill.CanUseSkill();
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            Inventory.instance.UseFlask();
+    }
+
+    public override void SlowCharacter(float _slowPercentage, float _slowDuration)
+    {
+        moveSpeed *= 1 - _slowPercentage;
+        jumpForce *= 1 - _slowPercentage;
+        dashSpeed *= 1 - _slowPercentage;
+
+        Invoke("ReturnDefultSpeed", _slowDuration);
+    }
+
+    protected override void ReturnDefultSpeed()
+    {
+        base.ReturnDefultSpeed();
+
+        moveSpeed = defultMoveSpeed;
+        jumpForce = defultJumpForce;
+        dashSpeed = defultDashSpeed;
     }
 
     public void Dash()
     {
         if (IsWallDetect())
             return;
+
+        if (skill.dashSkill.dashUnlocked == false) return;
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dashSkill.CanUseSkill())
         {

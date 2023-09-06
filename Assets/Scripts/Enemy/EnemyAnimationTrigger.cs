@@ -23,6 +23,7 @@ public class EnemyAnimationTrigger : MonoBehaviour
             if (hit.GetComponent<Player>() != null)
             {
                 PlayerStarts playerStarts = hit.GetComponent<PlayerStarts>();
+                
                 enemy.states.DoDamage(playerStarts);
                 //hit.GetComponent<Player>().Damage();
             }

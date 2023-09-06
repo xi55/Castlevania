@@ -1,0 +1,2 @@
+E:\UnityProject\RPG\obj\Debug\Cinemachine.csproj.AssemblyReference.cache
+E:\UnityProject\RPG\obj\Debug\Cinemachine.csproj.CoreCompileInputs.cache
