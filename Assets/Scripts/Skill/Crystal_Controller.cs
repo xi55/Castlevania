@@ -61,6 +61,7 @@ public class Crystal_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)
             {
+                hit.GetComponent<Character>().SetupKonckBackDir(transform);
                 //hit.GetComponent<Enemy>().Damage();
                 PlayerManager.instance.player.states.DoMagicDamage(hit.GetComponent<CharacterStarts>());
 

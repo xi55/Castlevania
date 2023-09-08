@@ -12,12 +12,14 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.Enter();
         player.SetVelocity(0, 0);
+        AudioManager.instance.PlaySfx(14, null);
     }
 
     public override void Exit()
     {
         base.Exit();
         player.SetVelocity(0, 0);
+        AudioManager.instance.StopSfx(14);
     }
 
     public override void Update()

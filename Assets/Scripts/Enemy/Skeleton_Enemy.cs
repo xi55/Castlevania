@@ -7,7 +7,9 @@ public class Skeleton_Enemy : Enemy
     [Header("Attack info")]
     public float playerDistence;
     [SerializeField] private Vector2 playerCheck;
-    [SerializeField] public float coolDown;
+    [SerializeField] public float attackCooldown;
+    [SerializeField] public float minAttackCooldown;
+    [SerializeField] public float maxAttackCooldown;
     [HideInInspector] public float lastAttackTime;
     public float battleTime;
 

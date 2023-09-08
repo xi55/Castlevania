@@ -15,4 +15,5 @@ MonoBehaviour:
   itemType: 0
   itemName: Gold
   icon: {fileID: -8383008009325528074, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  dropChance: 0
+  itemId: 4611f7842c9a61b48a7b26dbf670f9e9
+  dropChance: 100

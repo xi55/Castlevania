@@ -16,15 +16,13 @@ public class ItemDrop : MonoBehaviour
         {
             if(Random.Range(0, 100) < possibleDrop[i].dropChance)
             {
-                Debug.Log(possibleDrop[i].name);
                 dropList.Add(possibleDrop[i]);
             }
         }
         if (dropList.Count == 0) return;
-        for(int i = 0; i < dropAmount; i++)
+        for(int i = 0; i < dropList.Count; i++)
         {
             ItemData randomItem = dropList[Random.Range(0, dropList.Count - 1)];
-            
             dropList.Remove(randomItem);
 
             DropItem(randomItem);

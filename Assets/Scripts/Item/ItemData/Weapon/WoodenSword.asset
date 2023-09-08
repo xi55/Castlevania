@@ -20,7 +20,7 @@ MonoBehaviour:
   equipmentType: 0
   itemCooldown: 0
   itemEffects: []
-  itemEffectsDescription: 
+  itemEffectsDescription: Wooden Sword
   strength: 1
   agility: 2
   intelligence: 0

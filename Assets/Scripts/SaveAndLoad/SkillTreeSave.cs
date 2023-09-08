@@ -13,6 +13,7 @@ public class SkillTreeSave : MonoBehaviour, ISaveManager
     }
     public void LoadData(GameData _data)
     {
+        if (skillSlotParent == null) return;
         for(int i = 0; i < skillSlot.Length; i++)
         {
             if (_data.skillTree.TryGetValue(skillSlot[i].skillName, out bool value))
@@ -24,6 +25,7 @@ public class SkillTreeSave : MonoBehaviour, ISaveManager
 
     public void SaveData(ref GameData _data)
     {
+        if (skillSlotParent == null) return;
         for (int i = 0; i < skillSlot.Length; i++)
         {
             if(_data.skillTree.TryGetValue(skillSlot[i].skillName, out bool value))

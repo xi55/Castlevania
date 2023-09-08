@@ -13,12 +13,14 @@ public class PlayerDashState : PlayerStates
         base.Enter();
         stateTime = 0.15f;
         player.skill.dashSkill.CloneOnDash();
+        player.states.MakeInvincible(true);
     }
 
     public override void Exit()
     {
         base.Exit();
         player.skill.dashSkill.CloneOnArrival();
+        player.states.MakeInvincible(false);
     }
 
     public override void Update()
@@ -33,5 +35,7 @@ public class PlayerDashState : PlayerStates
         {
             stateMachine.ChangeState(player.IdelState);
         }
+        player.FX.CreateAfterImage();
+
     }
 }

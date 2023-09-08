@@ -6,6 +6,7 @@ public class EnemyStarts : CharacterStarts
 {
     private Enemy enemy;
     private ItemDrop itemDrop;
+    public Start soulsDropAmount;
 
     [Header("Level details")]
     [SerializeField] private int level;
@@ -15,10 +16,13 @@ public class EnemyStarts : CharacterStarts
 
     protected override void Start()
     {
+        soulsDropAmount.SetDefultValue(100);
         AddLevelModify();
         base.Start();
         enemy = GetComponent<Enemy>();
         itemDrop = GetComponent<ItemDrop>();
+
+        
     }
 
     private void AddLevelModify()
@@ -40,6 +44,8 @@ public class EnemyStarts : CharacterStarts
         Modify(fireDamage);
         Modify(iceDamage);
         Modify(lightingDamage);
+
+        Modify(soulsDropAmount);
     }
 
     protected override void Update()
@@ -65,7 +71,10 @@ public class EnemyStarts : CharacterStarts
     {
         base.Die();
         enemy.Die();
+        PlayerManager.instance.currency += soulsDropAmount.GetValue();
         itemDrop.GenerateDrop();
+
+        Destroy(gameObject, 5f);
     }
 
 

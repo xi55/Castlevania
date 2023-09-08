@@ -15,11 +15,13 @@ MonoBehaviour:
   itemType: 1
   itemName: Ice And Fire Sword
   icon: {fileID: 6970845654061554475, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: adc6c136abd53bb4b865bdba629d850b
   dropChance: 0
   equipmentType: 0
   itemCooldown: 0
   itemEffects:
   - {fileID: 11400000, guid: 93159aae511303e4bbf80ba66cc50dcd, type: 2}
+  itemEffectsDescription: Ice And Fire Sword
   strength: 0
   agility: 0
   intelligence: 0

@@ -15,10 +15,12 @@ MonoBehaviour:
   itemType: 1
   itemName: Hunter's necklace
   icon: {fileID: -8335479830982739421, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: e932d544f79a7ce4c8562a41c32ac01c
   dropChance: 0
   equipmentType: 2
   itemCooldown: 0
   itemEffects: []
+  itemEffectsDescription: Hunter's necklace
   strength: 10
   agility: 10
   intelligence: 0

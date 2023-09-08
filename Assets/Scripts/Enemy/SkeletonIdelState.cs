@@ -16,6 +16,7 @@ public class SkeletonIdelState : EnemyGroundState
     public override void Exit()
     {
         base.Exit();
+        AudioManager.instance.PlaySfx(24, enemy.transform);
     }
 
     public override void Updata()

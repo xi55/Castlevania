@@ -21,7 +21,7 @@ MonoBehaviour:
   itemCooldown: 0
   itemEffects:
   - {fileID: 11400000, guid: 927f2c6d21c48d449892531f8dd1d48f, type: 2}
-  itemEffectsDescription: 
+  itemEffectsDescription: Dracula Sword
   strength: 0
   agility: 0
   intelligence: 0

@@ -79,4 +79,11 @@ public class SaveManager : MonoBehaviour
 
     }
 
+    public bool HasSaveData()
+    {
+        if(dataHandle.Load() != null)
+            return true;
+        return false;
+    }
+
 }

@@ -6,6 +6,12 @@ public class CharacterFX : MonoBehaviour
 {
     private SpriteRenderer sr;
 
+    [Header("After image FX")]
+    [SerializeField] private float afterImgCooldown;
+    [SerializeField] private float afterImgTimer;
+    [SerializeField] private GameObject afterImagePreafab;
+    [SerializeField] private float colorLooseRate;
+
     [Header("Flashing info")]
     [SerializeField] private Material FX;
     [SerializeField] private float FXtime;
@@ -16,11 +22,37 @@ public class CharacterFX : MonoBehaviour
     [SerializeField] private Color[] ignteColor;
     [SerializeField] private Color[] shockColor;
 
+    [Header("Ailment particles")]
+    [SerializeField] private ParticleSystem igniteFx;
+    [SerializeField] private ParticleSystem chillFx;
+    [SerializeField] private ParticleSystem shockFx;
+
+    [Header("Hit FX")]
+    [SerializeField] private GameObject hitFxPrefab;
+    [SerializeField] private GameObject hitCritFxPrefab;
+
+    [Space]
+    [SerializeField] private ParticleSystem dustFx;
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
         originFX = sr.material;
+    }
+
+    private void Update()
+    {
+        afterImgTimer -= Time.deltaTime;
+    }
+
+    public void CreateAfterImage()
+    {
+        if(afterImgTimer < 0)
+        {
+            afterImgTimer = afterImgCooldown;
+            GameObject newAfterImg = Instantiate(afterImagePreafab, transform.position, transform.rotation);
+            newAfterImg.GetComponent<AfterImageFX>().SetupAfterImage(sr.sprite, colorLooseRate);
+        }
     }
 
     public virtual void MakeTransprent(bool _transprent)
@@ -54,11 +86,15 @@ public class CharacterFX : MonoBehaviour
     {
         CancelInvoke();
         sr.color = Color.white;
+        igniteFx.Stop();
+        chillFx.Stop();
+        shockFx.Stop();
     }
 
 
     public void chillFXfor(float _second)
     {
+        chillFx.Play();
         InvokeRepeating("chillColorFX", 0, .3f);
         Invoke("CancelColorChange", _second);
     }
@@ -73,6 +109,7 @@ public class CharacterFX : MonoBehaviour
 
     public void IgniteFXfor(float _second)
     {
+        igniteFx.Play();
         InvokeRepeating("IgniteColorFX", 0, .3f);
         Invoke("CancelColorChange", _second);
     }
@@ -87,6 +124,7 @@ public class CharacterFX : MonoBehaviour
 
     public void ShockFXfor(float _second)
     {
+        shockFx.Play();
         InvokeRepeating("shockColorFX", 0, .3f);
         Invoke("CancelColorChange", _second);
     }
@@ -97,6 +135,37 @@ public class CharacterFX : MonoBehaviour
             sr.color = shockColor[0];
         else
             sr.color = shockColor[1];
+    }
+
+    public void CreateHitFx(Transform _target, bool _critical)
+    {
+        float zRotation = Random.Range(-90, 90);
+        float xPosition = Random.Range(-.5f, .5f);
+        float yPosition = Random.Range(-.5f, .5f);
+
+        Vector3 hitFxRotation = new Vector3(0, 0, zRotation);
+
+        GameObject hitPrefab = hitFxPrefab;
+        if (_critical)
+        {
+            hitPrefab = hitCritFxPrefab;
+            float yRotation = 0;
+            zRotation = Random.Range(-45, 45);
+            if (GetComponent<Character>().faceDir == -1)
+                yRotation = 180;
+            hitFxRotation = new Vector3(0, yRotation, zRotation);
+        }
+
+        GameObject newHitFX = Instantiate(hitPrefab, _target.position, Quaternion.identity);
+        newHitFX.transform.Rotate(hitFxRotation);
+
+        Destroy(newHitFX, .5f);
+    }
+
+    public void playDustFx()
+    {
+        if(dustFx != null)
+            dustFx.Play();
     }
 
 }

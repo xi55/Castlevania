@@ -77,6 +77,8 @@ public class Player : Character
     // Update is called once per frame
     protected override void Update()
     {
+        if (Time.timeScale == 0) return;
+
         base.Update();
         stateMachine.currentState.Update();
         Dash();

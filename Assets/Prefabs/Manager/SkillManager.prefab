@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3137242506327554780}
   - component: {fileID: 3137242506327554783}
   - component: {fileID: 3137242506327554782}
+  - component: {fileID: 1692507928}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -63,6 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 1
   cooldownTimer: 0
+  player: {fileID: 0}
   dashUnlockedButton: {fileID: 0}
   cloneOndashUnlockedButton: {fileID: 0}
   cloneOnArrivalButton: {fileID: 0}
@@ -80,17 +82,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   cooldownTimer: 0
+  player: {fileID: 0}
   attackMultipler: 0
   clonePrefab: {fileID: 3364365449729798145, guid: 1abbcf32a2c621848bb85b69e5c17505, type: 3}
   cloneDuration: 1.5
   canAttack: 0
-  cloneAttackMultipler: 0
+  cloneAttackMultipler: 0.3
   cloneAttackUnlockedButton: {fileID: 0}
   aggresiveMirageUnlockedButton: {fileID: 0}
-  aggresiveMirageAttackMultipler: 0
+  aggresiveMirageAttackMultipler: 0.8
   multipleCloneUnlockedButton: {fileID: 0}
-  multipleCloneAttackMultipler: 0
-  chanceToDuplicate: 0
+  multipleCloneAttackMultipler: 0.3
+  chanceToDuplicate: 30
   canDuplicateClone: 0
   crystalInsteadUnlockedButton: {fileID: 0}
   crystalInseadOfClone: 0
@@ -109,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   cooldownTimer: 0
+  player: {fileID: 0}
   swordType: 0
   bounceAmount: 4
   bounceGravity: 4
@@ -149,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   cooldownTimer: 0
+  player: {fileID: 0}
   blackHoleUnlockedButton: {fileID: 0}
   blackHolePrefab: {fileID: 5772490619861515964, guid: f111386657c02054ba8d120d4e83f40b, type: 3}
   maxSize: 15
@@ -171,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   cooldownTimer: 0
+  player: {fileID: 0}
   crystalPrefab: {fileID: 6399672759022351699, guid: 9405b7dffb963be45a08fa3b3f6a4785, type: 3}
   crystalDuration: 4
   moveSpeed: 3
@@ -204,7 +210,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   cooldownTimer: 0
+  player: {fileID: 0}
   parryUnlockedButton: {fileID: 0}
   restoreUnlockedButton: {fileID: 0}
   restorePercent: 0.074
   parryWithMirageUnlockedButton: {fileID: 0}
+--- !u!114 &1692507928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3137242506327554758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2f9e2dd45dea347a027af2b1839c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  cooldownTimer: 0
+  player: {fileID: 0}
+  evasionAmount: 20
+  dodgeUnlockedButton: {fileID: 0}
+  dodgeMirageUnlockedButton: {fileID: 0}

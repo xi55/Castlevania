@@ -66,17 +66,20 @@
     <Compile Include="Assets\Scripts\Player\PlayerDropItem.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCounterAttackState.cs" />
-    <Compile Include="Assets\Scripts\Start.cs" />
+    <Compile Include="Assets\Scripts\Character\Start.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStateMachine.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBlackHoleState.cs" />
     <Compile Include="Assets\Scripts\UI\UI_SkillToolTip.cs" />
     <Compile Include="Assets\Scripts\Item\ItemData.cs" />
     <Compile Include="Assets\Scripts\Skill\BlackHole_Controller.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_Fade.cs" />
     <Compile Include="Assets\Scripts\Item\ItemEffect\IceAndFire_Controller.cs" />
-    <Compile Include="Assets\Scripts\BackGround.cs" />
+    <Compile Include="Assets\Scripts\SaveAndLoad\SkillTreeSave.cs" />
+    <Compile Include="Assets\Scripts\Game\BackGround.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStarts.cs" />
     <Compile Include="Assets\Scripts\UI\UI_SkillTreeSlot.cs" />
+    <Compile Include="Assets\Scripts\SaveAndLoad\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\Enemy\SkeletonIdelState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAnimationTrigger.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerGroundedState.cs" />
@@ -94,6 +97,7 @@
     <Compile Include="Assets\Scripts\UI\UI_InGame.cs" />
     <Compile Include="Assets\Scripts\Skill\SkillManager.cs" />
     <Compile Include="Assets\Scripts\Skill\Clone_Controller.cs" />
+    <Compile Include="Assets\Scripts\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyDeathState.cs" />
     <Compile Include="Assets\Scripts\SaveAndLoad\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Item\Inventory.cs" />
@@ -107,6 +111,7 @@
     <Compile Include="Assets\Scripts\Skill\BlackHole_Skill.cs" />
     <Compile Include="Assets\Scripts\SaveAndLoad\ISaveManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerWallJumpState.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_VolumeSlider.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStates.cs" />
     <Compile Include="Assets\Scripts\Item\ItemEffect\ThunderStrick_Controller.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
@@ -125,6 +130,7 @@
     <Compile Include="Assets\Scripts\Skill\Parry_Skill.cs" />
     <Compile Include="Assets\Scripts\UI\UI_StatToolTip.cs" />
     <Compile Include="Assets\Scripts\Item\ItemEffect\ThunderStrick_Effect.cs" />
+    <Compile Include="Assets\Scripts\Game\LostCurrencyController.cs" />
     <Compile Include="Assets\Scripts\Item\ItemEffect.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterFX.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerWallSlideState.cs" />
@@ -132,6 +138,7 @@
     <Compile Include="Assets\Scripts\Enemy\SkeletonBattleState.cs" />
     <Compile Include="Assets\Scripts\Skill\Sword_Controller.cs" />
     <Compile Include="Assets\Scripts\UI\UI_CraftSlot.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Item\ItemObject.cs" />
     <Compile Include="Assets\Scripts\Enemy\SkeletonStunnedState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyGroundState.cs" />
@@ -145,7 +152,9 @@
     <Compile Include="Assets\Scripts\Item\ItemData_Equipment.cs" />
     <Compile Include="Assets\Scripts\UI\UI_HealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemy\SkeletonAttackState.cs" />
-    <Compile Include="Assets\Scripts\SaveAndLoad\SkillTreeSave.cs" />
+    <Compile Include="Assets\Scripts\Audio\AreaSound.cs" />
+    <Compile Include="Assets\Scripts\Game\DeathZone.cs" />
+    <Compile Include="Assets\Scripts\Player\AfterImageFX.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

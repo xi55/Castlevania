@@ -64,6 +64,7 @@ public class Clone_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)
             {
+                hit.GetComponent<Character>().SetupKonckBackDir(transform);
                 Player player = PlayerManager.instance.player;
                 PlayerStarts playerStarts = player.GetComponent<PlayerStarts>();
                 EnemyStarts enemyStarts = hit.GetComponent<EnemyStarts>();

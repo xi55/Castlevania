@@ -15,11 +15,13 @@ MonoBehaviour:
   itemType: 1
   itemName: Amulet
   icon: {fileID: 3126629624396214699, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: 520129405a0428948b3e60374b9e23f3
   dropChance: 0
   equipmentType: 2
   itemCooldown: 0
   itemEffects:
   - {fileID: 11400000, guid: 9046dab849a52d441bb633227441a966, type: 2}
+  itemEffectsDescription: Thunder power
   strength: 0
   agility: 0
   intelligence: 0

@@ -120,7 +120,7 @@ public class ItemData_Equipment : ItemData
         AddItemDescription(fireDamage, "FireDMG");
         AddItemDescription(iceDamage, "IceDMG");
         AddItemDescription(lightingDamage, "LightDMG");
-
+        Debug.Log(itemEffectsDescription);
         if(itemEffectsDescription.Length > 0)
         {
             sb.AppendLine();

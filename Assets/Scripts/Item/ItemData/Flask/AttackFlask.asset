@@ -15,11 +15,13 @@ MonoBehaviour:
   itemType: 1
   itemName: Attack Flask
   icon: {fileID: -3423820884769068403, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: 436136a9ef66c9841b8b17dc2bcb3b03
   dropChance: 0
   equipmentType: 3
   itemCooldown: 5
   itemEffects:
   - {fileID: 11400000, guid: ad08be44b45285e439347d7aead8bf9d, type: 2}
+  itemEffectsDescription: Attack Flask
   strength: 0
   agility: 0
   intelligence: 0

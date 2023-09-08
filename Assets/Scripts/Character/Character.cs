@@ -26,6 +26,8 @@ public class Character : MonoBehaviour
     public Transform attackCheck;
     public float attackRedius;
 
+    public int konckbackDir { get; private set; }
+
     [HideInInspector]public CharacterFX FX;
 
     public System.Action onFlipped;
@@ -88,9 +90,17 @@ public class Character : MonoBehaviour
     public IEnumerator HitBack()
     {
         isHitBack = true;
-        rb.velocity = new Vector2(hitBackDis.x * -faceDir, hitBackDis.y);
+        rb.velocity = new Vector2(hitBackDis.x * konckbackDir, hitBackDis.y);
         yield return new WaitForSeconds(0.07f);
         isHitBack=false;
+    }
+
+    public virtual void SetupKonckBackDir(Transform _damage)
+    {
+        if (_damage.position.x > transform.position.x)
+            konckbackDir = -1;
+        else
+            konckbackDir = 1;
     }
 
     public bool IsGroundDetect() => Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset * new Vector2(faceDir, 1), .15f, isGround);

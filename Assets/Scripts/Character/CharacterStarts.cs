@@ -59,7 +59,7 @@ public class CharacterStarts : MonoBehaviour
 
     private float ignitedDamageCooldown = .3f;
     private float ignitedDamageTimer;
-    private int ignitedDamage;
+    [SerializeField] private int ignitedDamage;
 
     [SerializeField] private GameObject shockPrefab;
     private int shockDamage;
@@ -67,6 +67,7 @@ public class CharacterStarts : MonoBehaviour
     public int currentHealth;
     public bool isDead { get; private set; }
     private bool isVulnerable;
+    public bool isInvincible { get; private set; }
 
     public System.Action OnHealthChanged;
 
@@ -94,7 +95,9 @@ public class CharacterStarts : MonoBehaviour
         if (shockedTimer < 0)
             isShocked = false;
         if(isIgnited)
-            ApplyIgniteDamage();
+        {
+            ApplyIgniteDamage(ignitedDamage);
+        }
     }
 
     public virtual void IncreasesStat(int _modifer, float _duration, Start _start)
@@ -127,14 +130,12 @@ public class CharacterStarts : MonoBehaviour
                  OnHealthChanged();
     }
 
-
-
-    private void ApplyIgniteDamage()
+    private void ApplyIgniteDamage(int ignitedDmg)
     {
+        
         if (ignitedDamageTimer < 0)
         {
-            Debug.Log("Take burning Damage");
-            DecreaseHealthBy(ignitedDamage);
+            DecreaseHealthBy(ignitedDmg);
             if (currentHealth < 0 && !isDead)
                 Die();
             ignitedDamageTimer = ignitedDamageCooldown;
@@ -143,14 +144,22 @@ public class CharacterStarts : MonoBehaviour
 
     public virtual void DoDamage(CharacterStarts _target)
     {
+        bool isCritical = false;
         //Debug.Log(_target.name);
         if (TargetCanAvoidAttack(_target))
             return;
         
+        _target.GetComponent<Character>().SetupKonckBackDir(transform);
+
         int totalDamage = damage.GetValue() + strength.GetValue();
 
         if (CanCrit())
+        {
             totalDamage = ClaculateCriticalDamage(totalDamage);
+            isCritical = true;
+        }
+
+        fx.CreateHitFx(_target.transform, isCritical);
 
         totalDamage = CheckTargetArmor(_target, totalDamage);
 
@@ -204,11 +213,13 @@ public class CharacterStarts : MonoBehaviour
         }
 
         if (canApplyIgnited)
-            SetupIngitedDamage(Mathf.RoundToInt(_fireDamage * .2f));
+        {
+            _target.SetupIngitedDamage(Mathf.RoundToInt(_fireDamage * .2f));
+        }
 
         if (canApplyShocked)
         {
-            SetipShockedDamage(Mathf.RoundToInt(_lightingDamage * .2f));
+            _target.SetipShockedDamage(Mathf.RoundToInt(_lightingDamage * .2f));
         }
         print("1: " + canApplyIgnited + ", " + canApplyChilled + ", " + canApplyShocked);
         _target.ApplyAilments(canApplyIgnited, canApplyChilled, canApplyShocked, shockDamage);
@@ -315,6 +326,8 @@ public class CharacterStarts : MonoBehaviour
 
     public virtual void TakeDamage(int _damage)
     {
+        if (isInvincible) return;
+
         DecreaseHealthBy(_damage);
         
         GetComponent<Character>().DamageEffect();
@@ -345,6 +358,14 @@ public class CharacterStarts : MonoBehaviour
     {
         isDead = true;
     }
+
+    public void KillCharacter()
+    {
+        if (!isDead)
+            Die();
+    }
+
+    public void MakeInvincible(bool _invincible) => isInvincible = _invincible;
 
     public virtual void OnEvasion()
     {

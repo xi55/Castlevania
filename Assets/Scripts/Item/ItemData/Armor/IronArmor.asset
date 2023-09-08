@@ -15,10 +15,12 @@ MonoBehaviour:
   itemType: 1
   itemName: Iron Armor
   icon: {fileID: -6881840990013634863, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: 13ea984bdd08f8b4c9ba2cd13ad2ee9a
   dropChance: 48.2
   equipmentType: 1
   itemCooldown: 0
   itemEffects: []
+  itemEffectsDescription: Iron Armor
   strength: 0
   agility: 0
   intelligence: 0

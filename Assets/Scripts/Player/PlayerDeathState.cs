@@ -8,9 +8,15 @@ public class PlayerDeathState : PlayerStates
     {
     }
 
+    public override void AnimationFinishTrigger()
+    {
+        base.AnimationFinishTrigger();
+    }
+
     public override void Enter()
     {
         base.Enter();
+        GameObject.Find("Canvas").GetComponent<UI>().SwitchOnEndScreen();
     }
 
     public override void Exit()

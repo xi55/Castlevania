@@ -13,7 +13,7 @@ public class PlayerCatchSwordState : PlayerStates
     {
         base.Enter();
         sword = player.sword.transform;
-
+        player.FX.playDustFx();
         if (player.transform.position.x > sword.position.x && player.faceDir == 1)
             player.Flip();
         else if (player.transform.position.x < sword.position.x && player.faceDir == -1)

@@ -15,11 +15,13 @@ MonoBehaviour:
   itemType: 1
   itemName: Thunder Sword
   icon: {fileID: -8923096221919431833, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: b34ccd02b1b5930468c2d2e40fc93e44
   dropChance: 4.3
   equipmentType: 0
   itemCooldown: 0
   itemEffects:
   - {fileID: 11400000, guid: 9046dab849a52d441bb633227441a966, type: 2}
+  itemEffectsDescription: Thunder Sword
   strength: 0
   agility: 0
   intelligence: 0

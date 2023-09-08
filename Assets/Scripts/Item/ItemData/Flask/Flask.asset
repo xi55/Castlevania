@@ -15,11 +15,13 @@ MonoBehaviour:
   itemType: 1
   itemName: Life Flsk
   icon: {fileID: 1305603317952752446, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: c0fd9a59c56c0b34f86ca6e891549439
   dropChance: 0
   equipmentType: 3
   itemCooldown: 5
   itemEffects:
   - {fileID: 11400000, guid: 927f2c6d21c48d449892531f8dd1d48f, type: 2}
+  itemEffectsDescription: Life Flsk
   strength: 0
   agility: 0
   intelligence: 0
