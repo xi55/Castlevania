@@ -340,6 +340,10 @@ public class CharacterStarts : MonoBehaviour
     {
         if (isVulnerable)
             _damage = Mathf.RoundToInt(_damage * 1.5f);
+        if(_damage > 0)
+        {
+            fx.CreatePopUpText(_damage.ToString());
+        }
         Debug.Log(gameObject.name + " was dameged. value is " + _damage.ToString());
         currentHealth -= _damage;
         if(OnHealthChanged != null)

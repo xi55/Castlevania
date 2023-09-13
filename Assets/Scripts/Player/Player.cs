@@ -24,10 +24,11 @@ public class Player : Character
     public float counterAttackDuration;
 
     public Vector2[] attackMove;
-    [HideInInspector]public SkillManager skill;
+    [HideInInspector] public SkillManager skill;
 
     public GameObject sword;
 
+    [HideInInspector] public PlayerFX fx;
 
     public PlayerIdelState IdelState { get; private set; }
     public PlayerMoveState moveState { get; private set; }
@@ -68,6 +69,7 @@ public class Player : Character
         base.Start();
         stateMachine.Initialize(IdelState);
         skill = SkillManager.instance;
+        fx = GetComponent<PlayerFX>();
 
         defultMoveSpeed = moveSpeed;
         defultJumpForce = jumpForce;

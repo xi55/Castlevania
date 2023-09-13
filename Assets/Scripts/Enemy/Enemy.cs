@@ -17,6 +17,8 @@ public class Enemy : Character
     [SerializeField] public float idelTime;
     private float defultSpeed;
 
+    [HideInInspector] public CharacterFX fx;
+
     public string lastAnimBoolName { get; private set; }
  
 
@@ -30,6 +32,7 @@ public class Enemy : Character
     protected override void Start()
     {
         base.Start();
+        fx = GetComponent<CharacterFX>();
     }
 
     // Update is called once per frame

@@ -87,7 +87,7 @@ public class BlackHole_Controller : MonoBehaviour
         if (playerCanDisapear) 
         {
             playerCanDisapear = false;
-            PlayerManager.instance.player.FX.MakeTransprent(true);
+            PlayerManager.instance.player.fx.MakeTransprent(true);
         }
     }
 

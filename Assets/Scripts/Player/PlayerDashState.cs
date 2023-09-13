@@ -35,7 +35,7 @@ public class PlayerDashState : PlayerStates
         {
             stateMachine.ChangeState(player.IdelState);
         }
-        player.FX.CreateAfterImage();
+        player.fx.CreateAfterImage();
 
     }
 }

@@ -17,13 +17,13 @@ public class SkeletonStunnedState : EnemyState
         stateTimer = enemy.stunnedDuration;
         rb.velocity = new Vector2(enemy.stunnedDirection.x * -enemy.faceDir, enemy.stunnedDirection.y);
 
-        enemy.FX.InvokeRepeating("RedColorBlink", 0, 0.1f);
+        enemy.fx.InvokeRepeating("RedColorBlink", 0, 0.1f);
     }
 
     public override void Exit()
     {
         base.Exit();
-        enemy.FX.Invoke("CancelColorChange", 0);
+        enemy.fx.Invoke("CancelColorChange", 0);
     }
 
     public override void Updata()

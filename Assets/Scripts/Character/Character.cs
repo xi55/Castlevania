@@ -28,7 +28,6 @@ public class Character : MonoBehaviour
 
     public int konckbackDir { get; private set; }
 
-    [HideInInspector]public CharacterFX FX;
 
     public System.Action onFlipped;
     protected virtual void Awake()
@@ -43,7 +42,6 @@ public class Character : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
-        FX = GetComponent<CharacterFX>();
         states = GetComponentInChildren<CharacterStarts>();
     }
 

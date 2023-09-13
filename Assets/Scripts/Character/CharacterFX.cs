@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
+
 public class CharacterFX : MonoBehaviour
 {
-    private SpriteRenderer sr;
+    protected SpriteRenderer sr;
+    protected Player player;
 
-    [Header("After image FX")]
-    [SerializeField] private float afterImgCooldown;
-    [SerializeField] private float afterImgTimer;
-    [SerializeField] private GameObject afterImagePreafab;
-    [SerializeField] private float colorLooseRate;
+    [Header("Pop Up Text")]
+    [SerializeField] private GameObject popUpTextPrefab;
 
     [Header("Flashing info")]
     [SerializeField] private Material FX;
@@ -31,29 +31,29 @@ public class CharacterFX : MonoBehaviour
     [SerializeField] private GameObject hitFxPrefab;
     [SerializeField] private GameObject hitCritFxPrefab;
 
-    [Space]
-    [SerializeField] private ParticleSystem dustFx;
+    
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
         originFX = sr.material;
+        player = PlayerManager.instance.player;
     }
 
-    private void Update()
+
+    public void CreatePopUpText(string _text)
     {
-        afterImgTimer -= Time.deltaTime;
+        float randomX = Random.Range(-1, 1);
+        float randomY = Random.Range(2, 3);
+        Vector3 posOffset = new Vector3(randomX, randomY, 0);
+
+        GameObject newPopUpText = Instantiate(popUpTextPrefab, transform.position + posOffset, Quaternion.identity);
+
+        newPopUpText.GetComponent<TextMeshPro>().text = _text;
     }
 
-    public void CreateAfterImage()
-    {
-        if(afterImgTimer < 0)
-        {
-            afterImgTimer = afterImgCooldown;
-            GameObject newAfterImg = Instantiate(afterImagePreafab, transform.position, transform.rotation);
-            newAfterImg.GetComponent<AfterImageFX>().SetupAfterImage(sr.sprite, colorLooseRate);
-        }
-    }
+
+
 
     public virtual void MakeTransprent(bool _transprent)
     {
@@ -162,10 +162,6 @@ public class CharacterFX : MonoBehaviour
         Destroy(newHitFX, .5f);
     }
 
-    public void playDustFx()
-    {
-        if(dustFx != null)
-            dustFx.Play();
-    }
+
 
 }

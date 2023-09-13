@@ -64,9 +64,11 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyStateMachine.cs" />
     <Compile Include="Assets\Scripts\UI\UI_CraftWindow.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerDropItem.cs" />
+    <Compile Include="Assets\Scripts\Game\DeathZone.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCounterAttackState.cs" />
     <Compile Include="Assets\Scripts\Character\Start.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_PopUpText.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStateMachine.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBlackHoleState.cs" />
@@ -139,6 +141,7 @@
     <Compile Include="Assets\Scripts\Skill\Sword_Controller.cs" />
     <Compile Include="Assets\Scripts\UI\UI_CraftSlot.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Player\AfterImageFX.cs" />
     <Compile Include="Assets\Scripts\Item\ItemObject.cs" />
     <Compile Include="Assets\Scripts\Enemy\SkeletonStunnedState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyGroundState.cs" />
@@ -150,11 +153,10 @@
     <Compile Include="Assets\Scripts\UI\UI_ItemSlot.cs" />
     <Compile Include="Assets\Scripts\Item\ItemEffect\Hea_lEffect.cs" />
     <Compile Include="Assets\Scripts\Item\ItemData_Equipment.cs" />
+    <Compile Include="Assets\Scripts\Audio\AreaSound.cs" />
     <Compile Include="Assets\Scripts\UI\UI_HealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemy\SkeletonAttackState.cs" />
-    <Compile Include="Assets\Scripts\Audio\AreaSound.cs" />
-    <Compile Include="Assets\Scripts\Game\DeathZone.cs" />
-    <Compile Include="Assets\Scripts\Player\AfterImageFX.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerFX.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
