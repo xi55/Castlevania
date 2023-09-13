@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemyAnimationTrigger : MonoBehaviour
 {
-    private Skeleton_Enemy enemy;
+    private Enemy enemy;
     void Start()
     {
-        enemy = GetComponentInParent<Skeleton_Enemy>();
+        enemy = GetComponentInParent<Enemy>();
     }
 
     public void AnimationCalled()

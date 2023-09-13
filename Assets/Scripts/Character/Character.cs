@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
 
     [Header("HitBack info")]
     [SerializeField] protected Vector2 hitBackDis;
+    [SerializeField] protected Vector2 hitBackOffset;
     [SerializeField] protected bool isHitBack;
 
     [Header("Physics Check")]
@@ -88,7 +89,11 @@ public class Character : MonoBehaviour
     public IEnumerator HitBack()
     {
         isHitBack = true;
-        rb.velocity = new Vector2(hitBackDis.x * konckbackDir, hitBackDis.y);
+
+        float xOffset = Random.Range(hitBackOffset.x, hitBackOffset.y);
+
+        if (hitBackDis.x >0 || hitBackDis.y >0)
+            rb.velocity = new Vector2((hitBackDis.x + xOffset) * konckbackDir, hitBackDis.y);
         yield return new WaitForSeconds(0.07f);
         isHitBack=false;
     }

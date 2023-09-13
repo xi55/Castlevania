@@ -136,7 +136,7 @@ public class CharacterStarts : MonoBehaviour
         if (ignitedDamageTimer < 0)
         {
             DecreaseHealthBy(ignitedDmg);
-            if (currentHealth < 0 && !isDead)
+            if (currentHealth <= 0 && !isDead)
                 Die();
             ignitedDamageTimer = ignitedDamageCooldown;
         }
@@ -332,7 +332,7 @@ public class CharacterStarts : MonoBehaviour
         
         GetComponent<Character>().DamageEffect();
         fx.StartCoroutine(fx.FlashFX());
-        if (currentHealth < 0 && !isDead)
+        if (currentHealth <= 0 && !isDead)
             Die();
     }
 

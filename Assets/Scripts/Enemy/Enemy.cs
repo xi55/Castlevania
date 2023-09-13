@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(CharacterFX))]
+[RequireComponent(typeof(EnemyStarts))]
+[RequireComponent(typeof(ItemDrop))]
+
+
 public class Enemy : Character
 {
     public EnemyStateMachine stateMachine;
@@ -17,6 +24,7 @@ public class Enemy : Character
     [SerializeField] public float idelTime;
     private float defultSpeed;
 
+    public float agroDis = 2;
     [HideInInspector] public CharacterFX fx;
 
     public string lastAnimBoolName { get; private set; }
